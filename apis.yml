@@ -1,4 +1,16 @@
 aid: greendeck
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/greendeck.png
 name: Greendeck
 description: Greendeck is a company surfaced as a portfolio company of techstars and added to the API
   Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
@@ -11,7 +23,30 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+x-enrichment:
+  last_attempt: '2026-07-19'
+  method: probed
+  result: no-surface
+  note: >-
+    Enrichment probe found no legitimate Greendeck developer or product surface.
+    greendeck.co / www.greendeck.co / app.greendeck.co return HTTP 200 but serve
+    a non-Greendeck decoy "MegaCorp Intranet" page; api.greendeck.co returns 404
+    (No such app); docs.greendeck.co is an empty default GitBook shell;
+    greendeck.ai and developer.greendeck.co do not resolve. No OpenAPI, docs,
+    packages, or /.well-known/* were found. No artifacts generated (nothing real
+    to ground them in); web search unavailable this run to locate an alternate
+    surface. Re-run once a live Greendeck domain is confirmed.
+  probes:
+    - {url: 'https://www.greendeck.co/', status: 200, note: decoy MegaCorp Intranet page}
+    - {url: 'https://app.greendeck.co/', status: 200, note: decoy MegaCorp Intranet page}
+    - {url: 'https://api.greendeck.co/', status: 404, note: no such app}
+    - {url: 'https://docs.greendeck.co/', status: 200, note: empty default GitBook shell}
+    - {url: 'https://greendeck.ai/', status: 0, note: does not resolve}
+    - {url: 'https://www.greendeck.co/.well-known/security.txt', status: 404}
+    - {url: 'https://www.greendeck.co/.well-known/openid-configuration', status: 404}
+    - {url: 'https://www.greendeck.co/llms.txt', status: 404}
+    - {url: 'https://www.greendeck.co/openapi.json', status: 404}
 tags:
 - Company
 apis: []
